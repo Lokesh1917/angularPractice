@@ -1,0 +1,76 @@
+<p>directives works!</p>
+<h1 style="text-align: center;"> Learning Directives</h1>
+
+<div class="border border-2 p-2 m-2">
+  <h4>If-else</h4>
+  <input type="number" [(ngModel)]="num" />
+  @if(num%2==0){
+
+    <div>  {{num}} is even </div>
+  }@else {
+
+    <div>  {{num}} is odd </div>
+  }
+</div>
+
+<div class="border border-2 p-2 m-2">
+  <h3>Switch case example</h3>
+  @switch (num) {
+    @case (1) {<div>Monday</div>}
+    @case (2) {<div>Tuesday</div>}
+    @case (3) {<div>Wedneday</div>}
+    @case (4) {<div>Thursday</div>}
+    @case (5) {<div>Friday</div>}
+    @case (6) {<div>Saturday</div>}
+    @case (7) {<div>Sunday</div>}
+    @default {<div>Not a Valid Input </div>}
+
+  }
+</div>
+
+
+<div class="border border-2 p-2 m-2">
+  <h3>Example List of Cars using For::</h3>
+  <ol>
+  @for (car of carArr; track $index) {
+    <li>{{car}}</li>
+  }@empty {
+    Empty list of Cars
+  }
+  </ol>
+</div>
+<div class="border border-2 p-2 m-2">
+  <h3>Example of dropdown of Cars using For::</h3>
+  <select>
+  @for (car of carArr; track $index) {
+    <option>{{car}}</option>
+  }
+  </select>
+</div>
+
+
+
+<div class="border border-2 p-2 m-2">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th style="text-align: center;">Sl# </th>
+        <th style="text-align: center;">emp ID </th>
+        <th  style="text-align: center;">Name</th>
+        <th  style="text-align: center;">Salary </th>
+        <th style="text-align: center;">Gender</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (emp of employees; track emp.eId) {
+        <tr>
+          <td>{{$index+1}}</td>
+          <td>{{emp.eId}}</td>
+          <td>{{emp.name}} </td>
+          <td>{{emp.sal}} </td>
+          <td>{{emp.gender}} </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

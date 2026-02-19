@@ -1,0 +1,19 @@
+<div class="container border border-2 text-center">
+  <div class="row">
+    <h5 >This is parent component</h5>
+    <div>My own Data : {{a}}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 border border border-2 rounded-2 ">
+      <app-child1-demo [a] = "a" ></app-child1-demo>
+    </div>
+
+    <div class="col-sm-6 border border border-2 rounded-2 ">
+      <app-child2-demo></app-child2-demo>
+    </div>
+
+  </div>
+</div>
+
+

@@ -1,0 +1,26 @@
+import { inject, Injectable } from '@angular/core';
+import { map, Observable } from 'rxjs';
+import { Employee } from '../models/employee';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class EmployeeService {
+  httpClient = inject(HttpClient);
+
+  /*  getAllEmployees() { // reads data from backend , returns as it is
+     return this.httpClient.get('http://localhost:3000/employees')
+   } */
+
+  getAllEmployees(): Observable<Employee[]> {
+    return this.httpClient.get<Employee[]>('http://localhost:3000/employees').pipe(
+      map((responseArr: Employee[]) => {
+        return responseArr.map((empInfo: Employee) => {
+          let { id, firstName, lastName, sal, gender } = empInfo;
+          return new Employee(id, firstName, lastName, sal, gender);
+        });
+      })
+    );
+  }
+}

@@ -1,0 +1,46 @@
+<h3 class="text-center" appHighlight>Product-List</h3>
+
+
+<!-- <div>
+  <button class="btn btn-primary" (click)="openAlert()">Open Alert</button>
+</div>
+<div>
+    <button class="btn btn-primary" (click)="openSnackBar()">Open Snack Bar</button>
+</div> -->
+
+<div class="container">
+  <div class="row">
+<div class="col-sm-4 offset-4">
+  <input type="search" class="form-control" placeholder="Search .." appCharOnly>
+</div>
+  </div>
+  <div class="row mt-2">
+    <!-- Show a subset of page -->
+    @for (product of productArr | paginate: { itemsPerPage: 4, currentPage: p}; track $index) {
+    <div class="col-sm-3">
+      <div class="card" style="width: 18rem;">
+        <img
+          src="{{product.image}}" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{product.category}}</h5>
+          <p class="card-text">{{product.id}}
+          <p class="card-text text-truncate">{{product.title}}
+          <p class="card-text text-truncate">{{product.description}}
+          <p class="card-text">{{product.price}}
+          <p class="card-text">
+            {{product.rating.rate}}
+            <fa-icon [icon]="faStar"></fa-icon>
+          </p>
+          <button class="btn btn-primary">Details</button>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+<div class="row mt-2">
+  <div class="col-sm-6 offset-4">
+    <!-- Allows us to change the page -->
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
