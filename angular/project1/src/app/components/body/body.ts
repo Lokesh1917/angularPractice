@@ -14,6 +14,7 @@ import { ObservableDemo2 } from "../observable-demo2/observable-demo2";
 import { SubjectDemo1 } from "../subject-demo1/subject-demo1";
 import { AlbumList } from '../album-list/album-list';
 import { SignalDemo1 } from "../signal-demo1/signal-demo1";
+import { FormDemo1 } from "../form-demo1/form-demo1";
 
 @Component({
   selector: 'app-body',
@@ -32,7 +33,8 @@ import { SignalDemo1 } from "../signal-demo1/signal-demo1";
     // ObservableDemo2,
     // SubjectDemo1,
     // AlbumList,
-    SignalDemo1
+    // SignalDemo1,
+    FormDemo1
   ],
   templateUrl: './body.html',
   styleUrl: './body.css',
